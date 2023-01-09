@@ -1,36 +1,40 @@
-add mapped points Reset Reset -type PI PI -module tx top
-add mapped points Send Send -type PI PI -module tx top
-add mapped points Sent Sent -type PO PO -module tx top
-add mapped points Sout Sout -type PO PO -module tx top
-add mapped points clk clk -type PI PI -module tx top
-add mapped points Din[0] Din[0] -type PI PI -module tx top
-add mapped points Din[1] Din[1] -type PI PI -module tx top
-add mapped points Din[2] Din[2] -type PI PI -module tx top
-add mapped points Din[3] Din[3] -type PI PI -module tx top
-add mapped points Din[4] Din[4] -type PI PI -module tx top
-add mapped points Din[5] Din[5] -type PI PI -module tx top
-add mapped points Din[6] Din[6] -type PI PI -module tx top
-add mapped points Din[7] Din[7] -type PI PI -module tx top
-add mapped points \cycles_reg[3]  CLBLL_L_X2Y107_SLICE_X1Y107_D_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[2]  CLBLL_L_X2Y107_SLICE_X1Y107_C_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[1]  CLBLL_L_X2Y107_SLICE_X1Y107_B_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[0]  CLBLL_L_X2Y107_SLICE_X1Y107_A_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[7]  CLBLL_L_X2Y108_SLICE_X1Y108_D_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[6]  CLBLL_L_X2Y108_SLICE_X1Y108_C_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[5]  CLBLL_L_X2Y108_SLICE_X1Y108_B_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[4]  CLBLL_L_X2Y108_SLICE_X1Y108_A_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[11]  CLBLL_L_X2Y109_SLICE_X1Y109_D_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[10]  CLBLL_L_X2Y109_SLICE_X1Y109_C_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[9]  CLBLL_L_X2Y109_SLICE_X1Y109_B_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[8]  CLBLL_L_X2Y109_SLICE_X1Y109_A_FDRE -type DFF DFF -module tx top
-add mapped points \cycles_reg[12]  CLBLL_L_X2Y110_SLICE_X1Y110_A_FDRE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[0]  CLBLL_L_X2Y106_SLICE_X0Y106_B_FDSE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[1]  CLBLL_L_X2Y106_SLICE_X0Y106_C_FDRE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[2]  CLBLL_L_X2Y105_SLICE_X0Y105_B_FDRE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[3]  CLBLL_L_X2Y105_SLICE_X0Y105_A_FDRE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[4]  CLBLL_L_X2Y106_SLICE_X0Y106_A_FDRE -type DFF DFF -module tx top
-add mapped points FSM_onehot_cs_reg[5]  CLBLL_L_X2Y106_SLICE_X0Y106_A5_FDRE -type DFF DFF -module tx top
-add mapped points Sout_reg CLBLL_L_X2Y105_SLICE_X1Y105_C_FDRE -type DFF DFF -module tx top
-add mapped points bitNum_reg[0]  CLBLL_L_X2Y107_SLICE_X0Y107_A_FDRE -type DFF DFF -module tx top
-add mapped points bitNum_reg[1]  CLBLL_L_X2Y106_SLICE_X1Y106_A_FDRE -type DFF DFF -module tx top
-add mapped points bitNum_reg[2]  CLBLL_L_X2Y106_SLICE_X1Y106_B_FDRE -type DFF DFF -module tx top
+\cycles_reg[0]  <-> CLBLL_L_X2Y107_SLICE_X1Y107_A_FDRE
+\cycles_reg[1]  <-> CLBLL_L_X2Y107_SLICE_X1Y107_B_FDRE
+\cycles_reg[2]  <-> CLBLL_L_X2Y107_SLICE_X1Y107_C_FDRE
+\cycles_reg[3]  <-> CLBLL_L_X2Y107_SLICE_X1Y107_D_FDRE
+\FSM_onehot_cs[5]_i_4  <-> CLBLL_L_X2Y108_SLICE_X0Y108_CLUT
+\FSM_onehot_cs[5]_i_2  <-> CLBLL_L_X2Y108_SLICE_X0Y108_BLUT
+\FSM_onehot_cs[5]_i_3  <-> CLBLL_L_X2Y108_SLICE_X0Y108_ALUT
+\cycles_reg[4]  <-> CLBLL_L_X2Y108_SLICE_X1Y108_A_FDRE
+\cycles_reg[5]  <-> CLBLL_L_X2Y108_SLICE_X1Y108_B_FDRE
+\cycles_reg[6]  <-> CLBLL_L_X2Y108_SLICE_X1Y108_C_FDRE
+\cycles_reg[7]  <-> CLBLL_L_X2Y108_SLICE_X1Y108_D_FDRE
+\cycles_reg[8]  <-> CLBLL_L_X2Y109_SLICE_X1Y109_A_FDRE
+\cycles_reg[9]  <-> CLBLL_L_X2Y109_SLICE_X1Y109_B_FDRE
+\cycles_reg[10]  <-> CLBLL_L_X2Y109_SLICE_X1Y109_C_FDRE
+\cycles_reg[11]  <-> CLBLL_L_X2Y109_SLICE_X1Y109_D_FDRE
+\cycles_reg[12]  <-> CLBLL_L_X2Y110_SLICE_X1Y110_A_FDRE
+\Din_IBUF[1]_inst  <-> LIOB33_X0Y101_IOB_X0Y101_IBUF
+\Din_IBUF[2]_inst  <-> LIOB33_X0Y101_IOB_X0Y102_IBUF
+\Din_IBUF[3]_inst  <-> LIOB33_X0Y103_IOB_X0Y103_IBUF
+\Din_IBUF[4]_inst  <-> LIOB33_X0Y103_IOB_X0Y104_IBUF
+\Din_IBUF[5]_inst  <-> LIOB33_X0Y105_IOB_X0Y105_IBUF
+\Din_IBUF[6]_inst  <-> LIOB33_X0Y105_IOB_X0Y106_IBUF
+\Din_IBUF[7]_inst  <-> LIOB33_X0Y107_IOB_X0Y107_IBUF
+Reset_IBUF_inst <-> LIOB33_X0Y107_IOB_X0Y108_IBUF
+Send_IBUF_inst <-> LIOB33_X0Y109_IOB_X0Y109_IBUF
+Sent_OBUF_inst <-> LIOB33_X0Y109_IOB_X0Y110_OBUF
+Sout_OBUF_inst <-> LIOB33_X0Y111_IOB_X0Y111_OBUF
+clk_IBUF_inst <-> LIOB33_X0Y127_IOB_X0Y128_IBUF
+\Din_IBUF[0]_inst  <-> LIOB33_SING_X0Y100_IOB_X0Y100_IBUF
+Sout_i_6 <-> CLBLL_L_X2Y105_SLICE_X0Y105_DLUT
+Sout_i_3 <-> CLBLL_L_X2Y105_SLICE_X0Y105_CLUT
+Sout_reg <-> CLBLL_L_X2Y105_SLICE_X1Y105_C_FDRE
+Sout_i_4 <-> CLBLL_L_X2Y105_SLICE_X1Y105_BLUT
+Sout_i_5 <-> CLBLL_L_X2Y105_SLICE_X1Y105_ALUT
+Sout_reg_i_2 <-> CLBLL_L_X2Y105_SLICE_X1Y105_MUXF7A
+\FSM_onehot_cs_reg[0]  <-> CLBLL_L_X2Y106_SLICE_X0Y106_B_FDSE
+\FSM_onehot_cs[1]_i_1  <-> CLBLL_L_X2Y106_SLICE_X0Y106_BLUTLUT4
+\FSM_onehot_cs[1]_i_1  <-> CLBLL_L_X2Y106_SLICE_X0Y106_BLUT
+\bitNum_reg[2]  <-> CLBLL_L_X2Y106_SLICE_X1Y106_B_FDRE
+\cycles[0]_i_1  <-> CLBLL_L_X2Y106_SLICE_X1Y106_CLUT
