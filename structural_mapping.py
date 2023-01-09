@@ -12,8 +12,6 @@ from operator import truediv
 from unicodedata import name
 import spydrnet as sdn
 import argparse
-
-
 from print_data import print_conformal_input_output_points
 from structural.instance import Instance
 from structural.netlist import get_netlist, print_netlist
