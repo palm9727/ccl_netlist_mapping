@@ -1,5 +1,5 @@
 # ccl_netlist_mapping
-This script contains a mapping algorithm used for Conformal Equivalence Checking tool 
+This script contains a mapping algorithm used for the Conformal Equivalence Checker 
 (It includes both structural and functional mapping).
 
 Example on how to run the script:
