@@ -20,7 +20,7 @@ from functional.logic_functions_mapping import map_flipflops_based_on_logic_func
 from functional.netlist_flipflops_data import get_flipflops_and_configuration_bits
 
 
-def functionally_map_netlists(golden_netlist_arg, reversed_netlist_arg):
+def map_netlists(golden_netlist_arg, reversed_netlist_arg):
     # Loads the first netlist as intermediate representation (ir1)
     ir1 = sdn.parse(golden_netlist_arg)
     # Get the first library in the netlist
@@ -83,7 +83,7 @@ def main():
     parser.add_argument("golden_netlist")
     parser.add_argument("reversed_netlist")
     args = parser.parse_args()
-    functionally_map_netlists(args.golden_netlist, args.reversed_netlist)
+    map_netlists(args.golden_netlist, args.reversed_netlist)
 
     
 if __name__ == "__main__":
