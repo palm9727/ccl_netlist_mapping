@@ -15,6 +15,7 @@ from print_data import print_conformal_input_output_points
 from print_data import print_conformal_ff_points
 from print_data import print_data
 from structural.carry_chain_mapping import map_carries_and_flipflops
+from structural.shift_register_mapping import map_shift_register_and_output_flipflops
 from functional.configuration_bits_mapping import map_flipflops_based_on_conf_bits
 from functional.logic_functions_mapping import map_flipflops_based_on_logic_functions
 from functional.netlist_flipflops_data import get_flipflops_and_configuration_bits
@@ -31,19 +32,31 @@ def map_netlists(golden_netlist_arg, reversed_netlist_arg):
     # Get the second library in the netlist
     library2 = ir2.libraries[0]
 
+    # Structurally map flipflops
+    structurally_mapped_ffs = []
+
     # Get mapped carries and flipflops from the counters
     mapped_carries = []
     carry_chain_mapped_flipflops = []
     mapped_carries, carry_chain_mapped_flipflops = map_carries_and_flipflops(library1, library2)
     #print(mapped_carries)
 
+    structurally_mapped_ffs += carry_chain_mapped_flipflops
+
+    # Get mapped flipflops from the shift-register and its output
+    shift_register_and_output_flipflops = []
+
+    shift_register_and_output_flipflops = map_shift_register_and_output_flipflops(library1, library2)
+
+    structurally_mapped_ffs += shift_register_and_output_flipflops
+
     # Filling the first flipflops data object
     #print("Golden")
-    netlist_flipflops_data_1 = get_flipflops_and_configuration_bits(library1, carry_chain_mapped_flipflops, True) 
+    netlist_flipflops_data_1 = get_flipflops_and_configuration_bits(library1, structurally_mapped_ffs, True) 
 
     # Filling the second flipflops data object
     #print("Reversed")
-    netlist_flipflops_data_2 = get_flipflops_and_configuration_bits(library2, carry_chain_mapped_flipflops, False)
+    netlist_flipflops_data_2 = get_flipflops_and_configuration_bits(library2, structurally_mapped_ffs, False)
 
     # Printing Flipflops and Logic Equation's Trees
     #print("Golden")
@@ -66,7 +79,7 @@ def map_netlists(golden_netlist_arg, reversed_netlist_arg):
     )
 
     print_conformal_ff_points(
-        carry_chain_mapped_flipflops,
+        structurally_mapped_ffs,
         ir1.top_instance.reference.name,
         ir2.top_instance.reference.name,
     )
