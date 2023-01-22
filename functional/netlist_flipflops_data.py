@@ -171,7 +171,7 @@ def get_reduced_inputs_sops(inputs_sops, constant_inputs):
     return new_inputs_sops
 
 
-def get_minterms(conf_bits):
+def get_minterms(conf_bits, lut_inputs_length):
     # Convert configuration bits to binary
     bin_conf_bits = hex_to_bin(conf_bits)
     #print(bin_conf_bits)
@@ -180,11 +180,13 @@ def get_minterms(conf_bits):
     zeroes = []
     min_index = 0
     for i in reversed(range(len(bin_conf_bits))):
-        if bin_conf_bits[i] == '1':
-            minterms.append(min_index)
-        elif bin_conf_bits[i] == '0':
-            zeroes.append(min_index)
-        min_index += 1
+        # Logic used to select minterms and zeroes for 1 Input Luts
+        if ((lut_inputs_length != 1) or ((lut_inputs_length == 1) and (min_index < 2))):
+            if bin_conf_bits[i] == '1':
+                minterms.append(min_index)
+            elif bin_conf_bits[i] == '0':
+                zeroes.append(min_index)
+            min_index += 1
     #print(minterms)
     #print(zeroes)
     return minterms, zeroes
@@ -314,8 +316,10 @@ def get_lut_data(instance, configuration_bits, previous_luts, smaller_lut):
         configuration_bits.append(lut_conf_bits[i])
 
     # Build SOP Data Structure based on the configuration bits
-    minterms, zeroes = get_minterms(lut_conf_bits)
+    minterms, zeroes = get_minterms(lut_conf_bits, len(lut_inputs))
     start = timer()
+    #print("LUT inputs number:")
+    #print(len(lut_inputs))
     #print("minterms again:")
     #print(minterms)
     #print("zeroes again:")

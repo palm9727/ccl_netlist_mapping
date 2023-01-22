@@ -78,16 +78,22 @@ def map_netlists(golden_netlist_arg, reversed_netlist_arg):
         ir2.top_instance.reference.name,
     )
 
+    printing_structural = True
+
     print_conformal_ff_points(
         structurally_mapped_ffs,
         ir1.top_instance.reference.name,
         ir2.top_instance.reference.name,
+        printing_structural
     )
+
+    printing_structural = False
 
     print_conformal_ff_points(
         functionally_mapped_flipflops,
         ir1.top_instance.reference.name,
         ir2.top_instance.reference.name,
+        printing_structural
     )
 
 

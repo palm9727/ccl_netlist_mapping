@@ -64,19 +64,36 @@ def print_conformal_input_output_points(
 
 
 def print_conformal_ff_points(
-    mapped_flipflops, golden_module_name, reversed_module_name
+    mapped_flipflops, golden_module_name, reversed_module_name, printing_structural
 ):
     for ff_names in mapped_flipflops:
-        print(
-            "add mapped points "
-            + ff_names[0]
-            + " "
-            + ff_names[1]
-            + " -type DFF DFF -module "
-            + golden_module_name
-            + " "
-            + reversed_module_name
-        )
+        if (printing_structural):
+            impl_ff_name = ff_names[0][1:]
+            reversed_ff_name = ff_names[1]
+            print(
+                "add mapped points "
+                + impl_ff_name
+                + " "
+                + reversed_ff_name
+                + " -type DFF DFF -module "
+                + golden_module_name
+                + " "
+                + reversed_module_name
+            )
+        else:
+            impl_ff_name = ff_names[0]
+            reversed_ff_name = ff_names[1]
+            print(
+                "add mapped points "
+                + impl_ff_name
+                + " "
+                + reversed_ff_name
+                + " -type DFF DFF -module "
+                + golden_module_name
+                + " "
+                + reversed_module_name
+            )
+        
 
 
 def print_sop(sop, level):
